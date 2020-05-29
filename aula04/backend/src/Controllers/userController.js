@@ -14,8 +14,31 @@ module.exports = {
         res.json(response);
     },
     async listaUm(req,res){
-        const response = await user.findById('');
+        const response = await user.findById(req.params.id);
+        res.json(response);
+    },
+    async findUserByName(req,res){
+        const {name} = req.body;
+        user.find({name:/daniel/i}, function(err,docs){
+            if(!err){
+                console.log(docs);
+                res.json(docs);
+            }else{
+                throw err;
+            }
+        })
+    },
+    async listBySex(req,res){
+        const response = await user.find({"sex":req.params.sex});
+        res.json(response);
+    },
+    async listByAge(req,res){
+        const response = await user.find().where('age').gt(req.params.age);
+        res.json(response);
+    },
+    //Sempre que for usar o mongoose, tem que ser assíncrono
+    listManyFields(req,res){
+        const response = req.query.f;
         res.json(response);
     }
-
 }
