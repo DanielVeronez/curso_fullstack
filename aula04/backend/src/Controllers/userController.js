@@ -12,6 +12,10 @@ module.exports = {
     async listUsers(req,res){
         const response = await user.find();
         res.json(response);
+    },
+    async listaUm(req,res){
+        const response = await user.findById('');
+        res.json(response);
     }
 
 }
