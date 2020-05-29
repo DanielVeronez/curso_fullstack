@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
         type : String,
         require : true,
     },
-    sexo        : String,
+    sex         : String,
     age         : Number
 },{
     timestamps : true
