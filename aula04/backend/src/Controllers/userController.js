@@ -41,7 +41,6 @@ module.exports = {
         const response = await user.find() //encontre:
             .where('name').regex(req.query.name) //quando o nome conter
                 .where('age').equals(req.query.age); //quando a idade for
-        //req.query.name + '-' + req.query.age;
         res.json(response);
     }
 }
