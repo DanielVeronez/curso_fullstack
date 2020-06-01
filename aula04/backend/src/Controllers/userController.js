@@ -37,8 +37,11 @@ module.exports = {
         res.json(response);
     },
     //Sempre que for usar o mongoose, tem que ser assíncrono
-    listManyFields(req,res){
-        const response = req.query.f;
+    async listManyFields(req,res){
+        const response = await user.find() //encontre:
+            .where('name').regex(req.query.name) //quando o nome conter
+                .where('age').equals(req.query.age); //quando a idade for
+        //req.query.name + '-' + req.query.age;
         res.json(response);
     }
 }

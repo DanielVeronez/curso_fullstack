@@ -8,6 +8,6 @@ routes.get('/user/:id',userController.listaUm);
 routes.get('/userName/:name',userController.findUserByName);
 routes.get('/userSex/:sex',userController.listBySex);
 routes.get('/userAge/:age',userController.listByAge);
-routes.get('/userFields/:f',userController.listManyFields);
+routes.get('/userList/ObterPorParametros?:fields',userController.listManyFields);
 
 module.exports = routes;
